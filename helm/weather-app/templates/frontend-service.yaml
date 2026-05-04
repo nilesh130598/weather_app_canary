@@ -10,5 +10,5 @@ spec:
   ports:
   - port: {{ .Values.service.frontendPort }}
     targetPort: {{ .Values.frontend.port }}
-
+    
   type: NodePort
