@@ -2,12 +2,12 @@ namespace: weather-app
 
 frontend:
   replicas: 2
-  image: nilesh9168/frontend-weather:latest
+  image: nilesh9168/frontend_weather:latest
   port: 80
 
 backend:
   replicas: 2
-  image: nilesh9168/backend-weather:latest
+  image: nilesh9168/backend_weather:latest
   port: 5000  
 
 service:
