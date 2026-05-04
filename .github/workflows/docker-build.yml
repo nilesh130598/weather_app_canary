@@ -70,7 +70,7 @@ jobs:
         run: |
           pwd
           ls -la
-          ls -la k8s
+          # ls -la k8s
 
       # - name: create namespace
       #   run: kubectl apply -f k8s/namespace.yaml
