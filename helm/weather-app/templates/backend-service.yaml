@@ -8,7 +8,7 @@ spec:
     app: backend 
 
   ports:
-  - port: 5000
-    targetPort: 5000
+  - port: {{ .Values.service.backend }}
+    targetPort: {{ .Values.backend.port }}
 
-  type: ClusterIP         
+  type: ClusterIP
