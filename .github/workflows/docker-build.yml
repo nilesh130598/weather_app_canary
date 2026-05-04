@@ -69,8 +69,8 @@ jobs:
       - name: verify files
         run: |
           pwd
-          ls -la
-          # ls -la k8s
+          ls -lag
+          ls -la k8s
 
       # - name: create namespace
       #   run: kubectl apply -f k8s/namespace.yaml
@@ -80,7 +80,10 @@ jobs:
 
       - name: Deploy manifests
         run: |
-          helm upgrade --install weather-release ./helm/weather-app
+          helm upgrade --install weather-release ./helm/weather-app \
+          -n weather-app \
+          --create-namespace
+          
 
       - name: Restart rollout
         run: |
