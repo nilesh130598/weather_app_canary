@@ -2,9 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
-  namespace: weather-app
+  namespace: {{ .Values.namespace }}
 spec: 
-  replicas: 2
+  replicas: {{ .Values.frontend.replicas }}
 
   strategy:
     type: RollingUpdate
@@ -24,11 +24,12 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: nilesh9168/frontend_weather:latest
+        image: {{ .Values.frontend.image }}
         imagePullPolicy: Always
 
         ports:
-        - containerPort: 80
+        - containerPort: {{ .Values.frontend.port }}
+        - containerPort: 443
 
         resources:
           requests:
