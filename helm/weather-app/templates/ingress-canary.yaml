@@ -14,7 +14,7 @@ spec:
   tls:
     - hosts:
        - weather-local
-      secreteName: weather-tls
+      secretName: weather-tls
 
   rules:
     - host: {{ .Values.ingress.host }}
