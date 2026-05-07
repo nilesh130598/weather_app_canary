@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontendv2-service
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    app: frontend
+    version: v2
+
+  ports:
+    - port: 80
+      targetPort: 80
+ 
+
