@@ -1,35 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: frontend-v1
   namespace: {{ .Values.namespace }}
 spec: 
-  replicas: {{ .Values.frontend.replicas }}
+  replicas: {{ .Values.frontendv1.replicas }}
 
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 0
+  # strategy:
+  #   type: RollingUpdate
+  #   rollingUpdate:
+  #     maxSurge: 1
+  #     maxUnavailable: 0
 
   selector:
     matchLabels:
       app: frontend
+      version: v1
 
   template:
     metadata:
       labels:
         app: frontend
+        version: v1
 
     spec:
       containers:
       - name: frontend
-        image: {{ .Values.frontend.image }}
+        image: {{ .Values.frontendv1.image }}
         imagePullPolicy: Always
 
         ports:
-        - containerPort: {{ .Values.frontend.port }}
-        - containerPort: 443
+        - containerPort: {{ .Values.frontendv1.port }}
 
         resources:
           requests:

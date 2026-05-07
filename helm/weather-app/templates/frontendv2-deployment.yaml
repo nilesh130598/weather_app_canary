@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-v2
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: {{ .Values.frontendv2.replicas }}
+
+  # strategy:
+  #   type: RollingUpdate
+  #   rollingUpdate:
+  #     maxSurge: 1
+  #     maxUnavailable: 0
+
+  selector:
+    matchLabels:
+      app: frontend
+      version: v2
+
+  template:
+    metadata:
+      labels:
+        app: frontend
+        version: v2
+
+    spec:
+      containers:
+      - name: frontend
+        image: {{ .Values.frontendv2.image }}
+        imagePullPolicy: Always
+
+        ports:
+        - containerPort: {{ .Values.frontendv2.port }}
+
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"  
