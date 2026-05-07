@@ -38,13 +38,13 @@ jobs:
       - name: Build frontend image
         run: |
           docker build \
-           -t ${{ secrets.DOCKER_USERNAME }}/frontend_weather:latest \
+           -t ${{ secrets.DOCKER_USERNAME }}/frontend_weather:v1 \
            -t ${{ secrets.DOCKER_USERNAME }}/frontend_weather:${{ github.sha }} \
            ./Frontend_app
 
       - name: push frontend image
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/frontend_weather:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/frontend_weather:v1
           docker push ${{ secrets.DOCKER_USERNAME }}/frontend_weather:${{ github.sha }}     
 
       - name: Build backend image
