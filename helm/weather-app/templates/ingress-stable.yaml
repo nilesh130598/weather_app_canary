@@ -18,6 +18,14 @@ spec:
         http:
           paths: 
 
+            - path: /api
+              pathType: Prefix
+              backend: 
+                service:
+                  name: backend-service
+                  port:
+                    number: 5000
+                    
             - path: /
               pathType: Prefix
               backend:
@@ -26,11 +34,4 @@ spec:
                   port:
                     number: 80
 
-            - path: /api
-              pathType: Prefix
-              backend: 
-                service:
-                  name: backend-service
-                  port:
-                    number: 5000
         
