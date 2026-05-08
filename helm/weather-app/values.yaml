@@ -7,7 +7,7 @@ frontendv1:
 
 frontendv2:
   replicas: 1
-  image: nilesh9168/frontend_weather:latestg
+  image: nilesh9168/frontend_weather:latest
   port: 80  
 
 backend:
