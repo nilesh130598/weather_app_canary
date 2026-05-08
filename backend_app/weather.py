@@ -13,7 +13,7 @@ load_dotenv()
 # 🔑 Put your API key here OR use environment variable
 API_KEY = os.getenv("API_KEY")
 
-@app.route("/weather", methods=["GET"])
+@app.route("/api/weather", methods=["GET"])
 def get_weather():
     city = request.args.get("city")
 
